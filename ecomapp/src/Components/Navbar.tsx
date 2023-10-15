@@ -5,6 +5,7 @@ import { Box, Button, IconButton, Input, Stack } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CategoryFilter from "./CategoryFilter";
+import { AiFillAudio } from "react-icons/ai";
 const Navbar = () => {
   const Linkdata = [
     { name: "Cart", path: "cart" },
@@ -26,29 +27,17 @@ const Navbar = () => {
         className={Styles.navbar_stack_box}
         justifyContent={"space-between"}
         paddingX={4}
-
       >
         <img src={navbarlogopng} className={Styles.navbar_logo} />
         <Stack
           direction="row"
           spacing={2}
           className={Styles.navbar_search_stack}
-         alignItems={"center"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
         >
           <CategoryFilter />
-          <Box
-            sx={{
-              "@media (max-width: 600px)": { width: "70%" },
-
-              height: 50,
-              backgroundColor: "#ffffff",
-              "&:hover": {
-                borderColor: "blue",
-              },
-              borderRadius: 20,
-            }}
-            
-          >
+          <Stack  spacing={1} direction={"row"} border={"1px solid green"} borderRadius={20} justifyContent={"center"} alignItems={"center"} width={"60%"}>
             <Input
               placeholder="Search...."
               disableUnderline={true}
@@ -57,26 +46,25 @@ const Navbar = () => {
                 border: "none",
                 outline: "none",
                 padding: 2,
-                width: "100%",
+                width:"70%"
               }}
             />
-          </Box>
+            <AiFillAudio size={30} color='teal'/>
+          </Stack>
           <Button
             variant="outlined"
             endIcon={<Search />}
             color="success"
-className={Styles.search_button}
-sx={{
-  backgroundColor: "lightblue",
-width:{
-  sm:"20%"
-
-},
-fontSize:{
-  sm:"small"
-}
-}}
-        
+            className={Styles.search_button}
+            sx={{
+              backgroundColor: "lightblue",
+              width: {
+                sm: "10%",
+              },
+              fontSize: {
+                sm: "small",
+              },
+            }}
           >
             Search
           </Button>

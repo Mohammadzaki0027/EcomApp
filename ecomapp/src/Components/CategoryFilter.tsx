@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Box } from "@mui/material";
 
 export default function CategoryFilter() {
   const [category, setCategory] = React.useState<string | number>("");
@@ -28,8 +29,8 @@ export default function CategoryFilter() {
     { name: "Clothing", value: "Clothing" },
   ];
   return (
-    <div>
-      <FormControl sx={{ m: 1, Width: 100  , "@media (max-width: 600px)": {width:50 } ,}}>
+    <Box width={300}>
+      <FormControl sx={{ m: 1, }}>
         <InputLabel id="demo-controlled-open-select-label">Category</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -50,6 +51,6 @@ export default function CategoryFilter() {
           ))}
         </Select>
       </FormControl>
-    </div>
+    </Box>
   );
 }
