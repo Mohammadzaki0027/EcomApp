@@ -28,7 +28,35 @@
   justify-content: center;
   display: flex;
 }
-.logoimage{
-  width:50px;
+
+.navbar_search_stack {
+  align-items: center;
+  border: 1px solid greenyellow;
+width:100%
+}
+.navbar_stack_box{
+  border:1px solid blue;
+  width:"100%";
+  align-items: center;
+
+}
+.navbar_logo{
+  width: 50px;
   height: 50px;
+}
+.search_button{
+background-color: rgb(34, 34, 71);
+ color: red;
+}
+@media screen and (min-width: 700px) {
+  .navbar_search_stack {
+    align-items: center;
+    border: 1px solid black;
+    width:70%
+  }
+  .navbar_logo{
+    width: 30px;
+    height: 30px;
+    
+  }
 }

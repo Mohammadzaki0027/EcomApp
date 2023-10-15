@@ -16,35 +16,30 @@ const Navbar = () => {
       sx={{
         height: 80,
         backgroundColor: "#c5aa6a",
-        alignItems: "center",
-        display: "flex",
-        maxwidth: "100%",
+
+        width: "100%",
       }}
     >
       <Stack
         direction="row"
         spacing={2}
-        border="1px solid red"
-        width={1}
-        sx={{ "@media (max-width: 600px)": { padding:2} }}
+        className={Styles.navbar_stack_box}
         justifyContent={"space-between"}
-        paddingX={10}
-        alignItems={"center"}
+        paddingX={4}
+
       >
-        <img src={navbarlogopng} className={Styles.logoimage} />
+        <img src={navbarlogopng} className={Styles.navbar_logo} />
         <Stack
           direction="row"
           spacing={2}
-          width={"60%"}
-          border={"1px solid teal"}
-          alignItems={"center"}
-          sx={{ "@media (max-width: 600px)": {width:"50%" } }}
+          className={Styles.navbar_search_stack}
+         alignItems={"center"}
         >
           <CategoryFilter />
           <Box
             sx={{
-              width: "100%",
-           "@media (max-width: 600px)": {width:"70%" } ,
+              "@media (max-width: 600px)": { width: "70%" },
+
               height: 50,
               backgroundColor: "#ffffff",
               "&:hover": {
@@ -52,16 +47,17 @@ const Navbar = () => {
               },
               borderRadius: 20,
             }}
+            
           >
             <Input
               placeholder="Search...."
               disableUnderline={true}
-              fullWidth
               sx={{
                 height: "100%",
                 border: "none",
                 outline: "none",
                 padding: 2,
+                width: "100%",
               }}
             />
           </Box>
@@ -69,7 +65,18 @@ const Navbar = () => {
             variant="outlined"
             endIcon={<Search />}
             color="success"
-            sx={{ backgroundColor: "green", color: "white" }}
+className={Styles.search_button}
+sx={{
+  backgroundColor: "lightblue",
+width:{
+  sm:"20%"
+
+},
+fontSize:{
+  sm:"small"
+}
+}}
+        
           >
             Search
           </Button>
@@ -89,7 +96,7 @@ const Navbar = () => {
                     top: "100%",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    display: "none", // Initially hide the text
+                    display: "none",
                     backgroundColor: "rgba(0, 0, 0, 0.8)",
                     color: "white",
                     padding: "4px 8px",
