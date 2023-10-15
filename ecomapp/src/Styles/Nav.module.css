@@ -1,0 +1,34 @@
+.nav {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  background-color: aquamarine;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.horizontalList {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 60px;
+  width: 100%;
+  list-style: none;
+  height: "100%";
+  border: "1px solid red";
+}
+.searchbox {
+  width: 30%;
+  border: 1px solid black;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+.linkstyles {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.logoimage{
+  width:50px;
+  height: 50px;
+}
