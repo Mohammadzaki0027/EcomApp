@@ -29,8 +29,8 @@ export default function CategoryFilter() {
     { name: "Clothing", value: "Clothing" },
   ];
   return (
-    <Box width={300}>
-      <FormControl sx={{ m: 1, }}>
+    <div >
+      <FormControl sx={{ m: 1, width: 200 }}>
         <InputLabel id="demo-controlled-open-select-label">Category</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
@@ -51,6 +51,6 @@ export default function CategoryFilter() {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </div>
   );
 }

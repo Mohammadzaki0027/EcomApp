@@ -19,6 +19,9 @@ const Navbar = () => {
         backgroundColor: "#c5aa6a",
 
         width: "100%",
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
       }}
     >
       <Stack
@@ -37,7 +40,15 @@ const Navbar = () => {
           justifyContent={"space-between"}
         >
           <CategoryFilter />
-          <Stack  spacing={1} direction={"row"} border={"1px solid green"} borderRadius={20} justifyContent={"center"} alignItems={"center"} width={"60%"}>
+          <Stack
+            spacing={1}
+            direction={"row"}
+            border={"1px solid white"}
+            borderRadius={20}
+            justifyContent={"center"}
+            alignItems={"center"}
+            width={"60%"}
+          >
             <Input
               placeholder="Search...."
               disableUnderline={true}
@@ -46,16 +57,13 @@ const Navbar = () => {
                 border: "none",
                 outline: "none",
                 padding: 2,
-                width:"70%"
+                width: "80%",
               }}
             />
-            <AiFillAudio size={30} color='teal'/>
+            <AiFillAudio size={30} color="teal" />
           </Stack>
           <Button
-            variant="outlined"
             endIcon={<Search />}
-            color="success"
-            className={Styles.search_button}
             sx={{
               backgroundColor: "lightblue",
               width: {
@@ -64,6 +72,8 @@ const Navbar = () => {
               fontSize: {
                 sm: "small",
               },
+              borderRadius: 10,
+              padding: 1,
             }}
           >
             Search
