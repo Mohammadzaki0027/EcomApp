@@ -5,6 +5,7 @@ import { Box, Button, IconButton, Input, Stack } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CategoryFilter from "./CategoryFilter";
+import { AiFillAudio } from "react-icons/ai";
 const Navbar = () => {
   const Linkdata = [
     { name: "Cart", path: "cart" },
@@ -16,60 +17,64 @@ const Navbar = () => {
       sx={{
         height: 80,
         backgroundColor: "#c5aa6a",
-        alignItems: "center",
-        display: "flex",
-        maxwidth: "100%",
+
+        width: "100%",
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
       }}
     >
       <Stack
         direction="row"
         spacing={2}
-        border="1px solid red"
-        width={1}
-        sx={{ "@media (max-width: 600px)": { padding:2} }}
+        className={Styles.navbar_stack_box}
         justifyContent={"space-between"}
-        paddingX={10}
-        alignItems={"center"}
+        paddingX={4}
       >
-        <img src={navbarlogopng} className={Styles.logoimage} />
+        <img src={navbarlogopng} className={Styles.navbar_logo} />
         <Stack
           direction="row"
           spacing={2}
-          width={"60%"}
-          border={"1px solid teal"}
+          className={Styles.navbar_search_stack}
           alignItems={"center"}
-          sx={{ "@media (max-width: 600px)": {width:"50%" } }}
+          justifyContent={"space-between"}
         >
           <CategoryFilter />
-          <Box
-            sx={{
-              width: "100%",
-           "@media (max-width: 600px)": {width:"70%" } ,
-              height: 50,
-              backgroundColor: "#ffffff",
-              "&:hover": {
-                borderColor: "blue",
-              },
-              borderRadius: 20,
-            }}
+          <Stack
+            spacing={1}
+            direction={"row"}
+            border={"1px solid white"}
+            borderRadius={20}
+            justifyContent={"center"}
+            alignItems={"center"}
+            width={"60%"}
           >
             <Input
               placeholder="Search...."
               disableUnderline={true}
-              fullWidth
               sx={{
                 height: "100%",
                 border: "none",
                 outline: "none",
                 padding: 2,
+                width: "80%",
               }}
             />
-          </Box>
+            <AiFillAudio size={30} color="teal" />
+          </Stack>
           <Button
-            variant="outlined"
             endIcon={<Search />}
-            color="success"
-            sx={{ backgroundColor: "green", color: "white" }}
+            sx={{
+              backgroundColor: "lightblue",
+              width: {
+                sm: "10%",
+              },
+              fontSize: {
+                sm: "small",
+              },
+              borderRadius: 10,
+              padding: 1,
+            }}
           >
             Search
           </Button>
@@ -89,7 +94,7 @@ const Navbar = () => {
                     top: "100%",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    display: "none", // Initially hide the text
+                    display: "none",
                     backgroundColor: "rgba(0, 0, 0, 0.8)",
                     color: "white",
                     padding: "4px 8px",
