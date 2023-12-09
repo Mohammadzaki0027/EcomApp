@@ -9,7 +9,6 @@ import { AiFillAudio } from "react-icons/ai";
 const Navbar = () => {
   const Linkdata = [
     { name: "Cart", path: "cart" },
-
     { name: "Account", path: "login" },
   ];
   return (
@@ -17,7 +16,6 @@ const Navbar = () => {
       sx={{
         height: 80,
         backgroundColor: "#c5aa6a",
-
         width: "100%",
         position: "sticky",
         top: 0,
@@ -29,15 +27,24 @@ const Navbar = () => {
         spacing={2}
         className={Styles.navbar_stack_box}
         justifyContent={"space-between"}
-        paddingX={4}
+        paddingX={2}
+        border={"1px solid green"}
+        width={"100%"}
       >
         <img src={navbarlogopng} className={Styles.navbar_logo} />
         <Stack
-          direction="row"
-          spacing={2}
-          className={Styles.navbar_search_stack}
-          alignItems={"center"}
-          justifyContent={"space-between"}
+        direction={"row"}
+        spacing={2}
+          sx={{
+        
+            alignItems: "center",
+            justifyContent: "center",
+            border: "1px solid green",
+            "@media (max-width: 700px)": {
+              width: "100%",
+              border: "1px solid red",
+            },
+          }}
         >
           <CategoryFilter />
           <Stack
@@ -57,7 +64,7 @@ const Navbar = () => {
                 border: "none",
                 outline: "none",
                 padding: 2,
-                width: "80%",
+                width: { sm: "80%" },
               }}
             />
             <AiFillAudio size={30} color="teal" />
@@ -67,11 +74,13 @@ const Navbar = () => {
             sx={{
               backgroundColor: "lightblue",
               width: {
-                sm: "10%",
+                sm: "20%",
+                md: "20%",
               },
               fontSize: {
                 sm: "small",
               },
+
               borderRadius: 10,
               padding: 1,
             }}
@@ -79,36 +88,49 @@ const Navbar = () => {
             Search
           </Button>
         </Stack>
-        {Linkdata.map((ele) => (
-          <Stack direction="row" spacing={2} alignItems={"center"}>
-            {ele.name === "Cart" ? (
-              <IconButton
-                color="primary"
-                aria-label="add to shopping cart"
-                sx={{ position: "relative" }}
-              >
-                <AddShoppingCartIcon />
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    display: "none",
-                    backgroundColor: "rgba(0, 0, 0, 0.8)",
-                    color: "white",
-                    padding: "4px 8px",
-                    borderRadius: "4px",
-                  }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "20%",
+            border: "1px solid yellow",
+            "@media (max-width: 700px)": {
+              display: "none",
+            },
+          }}
+        >
+          {Linkdata.map((ele) => (
+            <Stack alignItems={"center"} border={"1px solid green"}>
+              {ele.name === "Cart" ? (
+                <IconButton
+                  color="primary"
+                  aria-label="add to shopping cart"
+                  sx={{ position: "relative" }}
                 >
-                  Cart
-                </span>
-              </IconButton>
-            ) : (
-              <Link to={ele.path}>{ele.name}</Link>
-            )}
-          </Stack>
-        ))}
+                  <AddShoppingCartIcon />
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      display: "none",
+                      backgroundColor: "rgba(0, 0, 0, 0.8)",
+                      color: "white",
+                      padding: "4px 8px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Cart
+                  </span>
+                </IconButton>
+              ) : (
+                <Link to={ele.path}>{ele.name}</Link>
+              )}
+            </Stack>
+          ))}
+        </Box>
       </Stack>
     </Box>
   );

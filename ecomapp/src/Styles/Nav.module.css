@@ -31,7 +31,7 @@
 
 .navbar_search_stack {
   align-items: center;
-  border: 1px solid greenyellow;
+  border: 1px solid teal;
 width:100%
 }
 .navbar_stack_box{
@@ -49,14 +49,7 @@ background-color: rgb(34, 34, 71);
  color: red;
 }
 @media screen and (min-width: 700px) {
-  .navbar_search_stack {
-    align-items: center;
-    border: 1px solid black;
-    width:70%
-  }
-  .navbar_logo{
-    width: 30px;
-    height: 30px;
-    
-  }
+
+
+ 
 }
