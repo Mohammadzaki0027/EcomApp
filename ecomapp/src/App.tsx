@@ -1,17 +1,25 @@
 import "./App.css";
-import Home from "./Pages/Home";
-import Navbar from "./Components/Navbar";
-import SideBar from "./Components/SideBar";
 
+import React from "react";
+import { Navbar } from "./Components/Navbar";
+import { Box } from "@mui/material";
 function App() {
   return (
-    <>
+    <Box
+      sx={{
+        backgroundColor: "#f4f4f4",
+        height: "100vh",
+
+        width: "100%",
+      }}
+    >
       <Navbar />
-      <section className="section">
-        <SideBar />
-        <Home />
-      </section>
-    </>
+      <Box
+        sx={{ height: "1000px", border: "1px solid red", paddingTop: "70px" }}
+      >
+      
+      </Box>
+    </Box>
   );
 }
 

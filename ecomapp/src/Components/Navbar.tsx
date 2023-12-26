@@ -1,139 +1,135 @@
-import Styles from "../Styles/Nav.module.css";
-import { Link } from "react-router-dom";
-import navbarlogopng from "../Assets/logonavbar.png";
-import { Box, Button, IconButton, Input, Stack } from "@mui/material";
-import { Search } from "@mui/icons-material";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import CategoryFilter from "./CategoryFilter";
-import { AiFillAudio } from "react-icons/ai";
-const Navbar = () => {
-  const Linkdata = [
-    { name: "Cart", path: "cart" },
-    { name: "Account", path: "login" },
-  ];
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  Popover,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import { navbarlogopng } from "../Assets/assets";
+import SelectLabels from "../MaterialUicomponent/SelectButton";
+import { CiShoppingCart } from "react-icons/ci";
+import { CiLogin } from "react-icons/ci";
+import { Image } from "@mui/icons-material";
+export const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handlePopoverOpen = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
   return (
     <Box
       sx={{
-        height: 80,
-        backgroundColor: "#c5aa6a",
         width: "100%",
-        position: "sticky",
-        top: 0,
+        position: "fixed",
         zIndex: 100,
+        overflow: "hidden",
+        boxShadow:
+          "0  4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        backgroundColor: "#ffffff",
+        height: "80px",
+        display: "flex",
+        justifyContent: "space-Evenly",
+        alignItems: "center",
+        margin: "auto",
+        "@media screen and (max-width: 600px)": {
+          height: "140px",
+
+          flexDirection: "column",
+        },
       }}
     >
-      <Stack
-        direction="row"
-        spacing={2}
-        className={Styles.navbar_stack_box}
-        justifyContent={"space-between"}
-        paddingX={2}
-        border={"1px solid green"}
-        width={"100%"}
+      <Box
+        sx={{
+          alignItems: "center",
+          width: "65%",
+          justifyContent: "space-between",
+          display: "flex",
+          "@media screen and (max-width: 600px)": {
+            width: "100%",
+          },
+        }}
       >
-        <img src={navbarlogopng} className={Styles.navbar_logo} />
-        <Stack
-        direction={"row"}
-        spacing={2}
+ <img src="" style={{width:"40px",height:"40px",border:"1px solid red" }} alt="logo" />
+        <SelectLabels />
+        <TextField
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
           sx={{
-        
-            alignItems: "center",
-            justifyContent: "center",
-            border: "1px solid green",
-            "@media (max-width: 700px)": {
-              width: "100%",
-              border: "1px solid red",
+            width: "60%",
+            "@media screen and (max-width: 600px)": {
+              width: "60%",
             },
           }}
-        >
-          <CategoryFilter />
-          <Stack
-            spacing={1}
-            direction={"row"}
-            border={"1px solid white"}
-            borderRadius={20}
-            justifyContent={"center"}
-            alignItems={"center"}
-            width={"60%"}
-          >
-            <Input
-              placeholder="Search...."
-              disableUnderline={true}
-              sx={{
-                height: "100%",
-                border: "none",
-                outline: "none",
-                padding: 2,
-                width: { sm: "80%" },
-              }}
-            />
-            <AiFillAudio size={30} color="teal" />
-          </Stack>
-          <Button
-            endIcon={<Search />}
-            sx={{
-              backgroundColor: "lightblue",
-              width: {
-                sm: "20%",
-                md: "20%",
-              },
-              fontSize: {
-                sm: "small",
-              },
+        />
+      </Box>
+      <Box
+        sx={{
+          width: "20%",
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
 
-              borderRadius: 10,
-              padding: 1,
+          "@media screen and (max-width: 600px)": {
+            width: "90%",
+            margin: "auto",
+            justifyContent: "space-around",
+          },
+        }}
+      >
+        <Box sx={{ height: "60px" }}>
+          <CiShoppingCart size={30} color={"black"} />
+          <Typography variant="h6" fontSize={16} color={"black"}>
+            Cart
+          </Typography>
+        </Box>
+        <Box
+          sx={{ height: "60px" }}
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
+        >
+          <CiLogin size={30} color={"black"} />
+
+          <Popover
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handlePopoverClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
             }}
           >
-            Search
-          </Button>
-        </Stack>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "20%",
-            border: "1px solid yellow",
-            "@media (max-width: 700px)": {
-              display: "none",
-            },
-          }}
-        >
-          {Linkdata.map((ele) => (
-            <Stack alignItems={"center"} border={"1px solid green"}>
-              {ele.name === "Cart" ? (
-                <IconButton
-                  color="primary"
-                  aria-label="add to shopping cart"
-                  sx={{ position: "relative" }}
-                >
-                  <AddShoppingCartIcon />
-                  <span
-                    style={{
-                      position: "absolute",
-                      top: "100%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      display: "none",
-                      backgroundColor: "rgba(0, 0, 0, 0.8)",
-                      color: "white",
-                      padding: "4px 8px",
-                      borderRadius: "4px",
-                    }}
-                  >
-                    Cart
-                  </span>
-                </IconButton>
-              ) : (
-                <Link to={ele.path}>{ele.name}</Link>
-              )}
-            </Stack>
-          ))}
+            <List>
+              <ListItem button>
+                <ListItemText primary="Login" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Profile" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Profile" />
+              </ListItem>
+            </List>
+          </Popover>
+
+          <Typography variant="h6" fontSize={16} color={"black"}>
+            Login
+          </Typography>
         </Box>
-      </Stack>
+      </Box>
     </Box>
   );
 };
-
-export default Navbar;
