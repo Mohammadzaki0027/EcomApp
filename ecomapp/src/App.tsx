@@ -3,21 +3,20 @@ import "./App.css";
 import React from "react";
 import { Navbar } from "./Components/Navbar";
 import { Box } from "@mui/material";
+import Home from "./Pages/Home";
+import PagesRoutes from "./Routes/PagesRoutes";
 function App() {
   return (
     <Box
       sx={{
-        backgroundColor: "#f4f4f4",
         height: "100vh",
-
+        backgroundColor: "#f4f4f4",
         width: "100%",
       }}
     >
       <Navbar />
-      <Box
-        sx={{ height: "1000px", border: "1px solid red", paddingTop: "70px" }}
-      >
-      
+      <Box sx={{ paddingTop: "150px", backgroundColor: "#f4f4f4" }}>
+        <PagesRoutes />
       </Box>
     </Box>
   );
