@@ -23,7 +23,7 @@ export default function SelectLabels() {
   ];
   return (
     <Box>
-      <FormControl sx={{ m: 1, minWidth: 100 }}>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-helper-label">Category</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"

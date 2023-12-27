@@ -1,12 +1,28 @@
-
+import { Box } from "@mui/material";
+import SideBar from "../Components/SideBar";
+import RightSideBar from "../Components/RightSideBar";
 
 const Home = () => {
   return (
-    <div style={{width:"60%",border:"1px solid red"}}>
-      <h1>Home components</h1>
+    <Box
+      sx={{
+        width: "100%",
+        border: "1px solid red",
+        backgroundColor: "#f4f4f4",
+        paddingTop: "100px",
+        margin: "auto",
+        display:"flex",
 
-    </div>
-  )
-}
+    
+        "@media screen and (max-width: 600px)": {
+          paddingTop: "150px",
+        },
+      }}
+    >
+      <SideBar />
+      <RightSideBar />
+    </Box>
+  );
+};
 
-export default Home
+export default Home;

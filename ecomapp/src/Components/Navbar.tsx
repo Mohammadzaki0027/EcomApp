@@ -8,11 +8,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { navbarlogopng } from "../Assets/assets";
+import navbarlogopng from "../Assets/logonavbar.png";
 import SelectLabels from "../MaterialUicomponent/SelectButton";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiLogin } from "react-icons/ci";
-import { Image } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+
 export const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -29,6 +30,8 @@ export const Navbar = () => {
     <Box
       sx={{
         width: "100%",
+        top:0,
+        left:0,
         position: "fixed",
         zIndex: 100,
         overflow: "hidden",
@@ -58,7 +61,7 @@ export const Navbar = () => {
           },
         }}
       >
- <img src="" style={{width:"40px",height:"40px",border:"1px solid red" }} alt="logo" />
+ <img src={navbarlogopng} style={{width:"40px",height:"40px" }} alt="logo" />
         <SelectLabels />
         <TextField
           id="outlined-basic"
@@ -113,8 +116,8 @@ export const Navbar = () => {
             }}
           >
             <List>
-              <ListItem button>
-                <ListItemText primary="Login" />
+              <ListItem button component={Link} to="/login">
+                <ListItemText primary="Login"  />
               </ListItem>
               <ListItem button>
                 <ListItemText primary="Profile" />
