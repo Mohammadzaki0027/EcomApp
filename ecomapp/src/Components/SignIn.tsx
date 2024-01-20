@@ -12,20 +12,20 @@ import Typography from "@mui/material/Typography";
 import { useFormik } from "formik";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import GoogleLogin from "react-google-login";
 const defaultTheme = createTheme();
 interface errorstype {
   password?: string;
   email?: string;
 }
 export default function SignIn() {
-  const[password,setPassword]=React.useState(true)
+  const [password, setPassword] = React.useState(true);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
   };
   const handleTogglePassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-event.stopPropagation()
+    event.stopPropagation();
     setPassword((password) => !password);
   };
   const formik = useFormik({
@@ -54,6 +54,11 @@ event.stopPropagation()
       console.log(values);
     },
   });
+  const responseGoogle = (response: any) => {
+console.log('Response from the google',response)
+  };
+
+ 
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -104,7 +109,7 @@ event.stopPropagation()
                   formik.touched.password && Boolean(formik.errors.password)
                 }
                 helperText={formik.touched.password && formik.errors.password}
-                type={password?"password":"text"}
+                type={password ? "password" : "text"}
               />
 
               <Button
@@ -116,8 +121,12 @@ event.stopPropagation()
                 Sign In
               </Button>
             </form>
-            <Button  sx={{ mt: 1, mb: 1, width: "50%" }}  type="button" onClick={handleTogglePassword}>
-             { password?"Show Password":"Hide Password"}
+            <Button
+              sx={{ mt: 1, mb: 1, width: "50%" }}
+              type="button"
+              onClick={handleTogglePassword}
+            >
+              {password ? "Show Password" : "Hide Password"}
             </Button>
             <Grid container gap={2}>
               <Grid item xs>
@@ -137,16 +146,27 @@ event.stopPropagation()
               component="button"
               sx={{
                 width: "100%",
-                border: "1px solid red",
+
                 display: "flex",
                 justifyContent: "space-evenly",
                 marginTop: "1rem",
                 padding: ".5rem",
-                backgroundColor: "white",
+      
                 borderRadius: "1rem",
                 alignItems: "center",
+                
               }}
-            ></Box>
+        
+            >
+              <GoogleLogin
+              
+                clientId="302082754809-cemhvals4sn7rhsds1uc7sfq6kmvtgat.apps.googleusercontent.com"
+                buttonText="Sign in with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+              />
+            </Box>
           </Box>
           {/* Google SignIn End Here */}
         </Box>

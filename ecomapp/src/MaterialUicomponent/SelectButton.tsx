@@ -36,7 +36,7 @@ export default function SelectLabels() {
             <em>None</em>
           </MenuItem>
           {categoryObject.map((ele:{name:string,value:string}) => {
-            return <MenuItem value={ele.value}>{ele.name}</MenuItem>;
+            return <MenuItem value={ele.value} key={ele.name}>{ele.name}</MenuItem>;
           })}
         </Select>
       </FormControl>

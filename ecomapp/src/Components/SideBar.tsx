@@ -27,6 +27,7 @@ const SideBar = () => {
             control={<Checkbox defaultChecked />}
             label="Label"
             sx={{ color: "black" }}
+            key={ele}
           />
         ))}
       </FormGroup>

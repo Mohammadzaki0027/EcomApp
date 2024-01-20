@@ -30,8 +30,8 @@ export const Navbar = () => {
     <Box
       sx={{
         width: "100%",
-        top:0,
-        left:0,
+        top: 0,
+        left: 0,
         position: "fixed",
         zIndex: 100,
         overflow: "hidden",
@@ -61,7 +61,11 @@ export const Navbar = () => {
           },
         }}
       >
- <img src={navbarlogopng} style={{width:"40px",height:"40px" }} alt="logo" />
+        <img
+          src={navbarlogopng}
+          style={{ width: "40px", height: "40px" }}
+          alt="logo"
+        />
         <SelectLabels />
         <TextField
           id="outlined-basic"
@@ -117,7 +121,7 @@ export const Navbar = () => {
           >
             <List>
               <ListItem button component={Link} to="/login">
-                <ListItemText primary="Login"  />
+                <ListItemText primary="Login" />
               </ListItem>
               <ListItem button>
                 <ListItemText primary="Profile" />
