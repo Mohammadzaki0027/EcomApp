@@ -4,6 +4,7 @@ body{
   padding: 0;
 
 }
+.custom-google-button{background-color: "red";}
 .section{
 display: flex;
 width: 100%;
