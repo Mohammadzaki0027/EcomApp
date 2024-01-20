@@ -6,6 +6,8 @@ import { Box } from "@mui/material";
 import Home from "./Pages/Home";
 import PagesRoutes from "./Routes/PagesRoutes";
 function App() {
+
+
   return (
     <Box
       sx={{
@@ -15,7 +17,15 @@ function App() {
       }}
     >
       <Navbar />
-      <Box sx={{ paddingTop: "150px", backgroundColor: "#f4f4f4" }}>
+      <Box
+        sx={{
+          paddingTop: "100px",
+          backgroundColor: "#f4f4f4",
+          "@media screen and (max-width: 600px)": {
+            paddingTop: "140px",
+          },
+        }}
+      >
         <PagesRoutes />
       </Box>
     </Box>
