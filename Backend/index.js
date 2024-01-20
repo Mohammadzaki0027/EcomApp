@@ -1,5 +1,7 @@
 const express = require("express");
+const { connection } = require("./config/db");
 const app = express();
+
 
 app.use(express.json());
 const port = process.env.PORT;
@@ -8,9 +10,9 @@ app.get("/", async (req, res) => {
 });
 app.listen(port, async () => {
   try {
-    // await connection
-    console.log("Connect to the port123");
+    await connection
+    console.log("Connect to the port",port);
   } catch (error) {
-    console.log("Errr");
+    console.log("Errr",error);
   }
 });
